@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  pts-db:
+    image: mysql:5.7
+    container_name: x
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'x'
+      MYSQL_USER: 'x'
+      MYSQL_PASSWORD: 'x'
+      MYSQL_ROOT_PASSWORD: 'x'
+    ports:
+      - x:x
+    expose:
+      - 'x'
+    volumes:
+      - x-db:/var/xx/mysql
+  
+volumes:
+  x-x:
