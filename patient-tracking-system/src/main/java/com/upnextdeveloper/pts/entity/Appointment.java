@@ -32,8 +32,8 @@ public class Appointment {
 	@Column(name="appointment_id")
 	private Integer appointmentId;
 	
-	@Column(name="appointment_date")
-	private Date appointmentDate;
+	@Column(name="appointment_dateime")
+	private Date appointmentDateTime;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name="appointment_status")
