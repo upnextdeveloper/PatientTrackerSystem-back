@@ -3,6 +3,7 @@ package com.upnextdeveloper.pts.entity;
 import java.util.Date;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.upnextdeveloper.pts.enums.AppointmentSpecialization;
 import com.upnextdeveloper.pts.enums.AppointmentStatus;
 
@@ -16,15 +17,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name="Appointment")
-@Data
-@Getter
-@Setter
 public class Appointment {
 
 	@Id
@@ -32,7 +27,8 @@ public class Appointment {
 	@Column(name="appointment_id")
 	private Integer appointmentId;
 	
-	@Column(name="appointment_dateime")
+	@Column(name="appointment_datetime")
+	@JsonFormat(pattern="MM-dd-yyyy hh:mm")
 	private Date appointmentDateTime;
 	
 	@Enumerated(EnumType.STRING)
@@ -46,4 +42,55 @@ public class Appointment {
 	@ManyToOne
 	@JoinColumn(name="patient_id", nullable=false)
 	private Patient patient;
+	
+	public Appointment() {}
+
+	public Integer getAppointmentId() {
+		return appointmentId;
+	}
+
+	public void setAppointmentId(Integer appointmentId) {
+		this.appointmentId = appointmentId;
+	}
+
+	public Date getAppointmentDateTime() {
+		return appointmentDateTime;
+	}
+
+	public void setAppointmentDateTime(Date appointmentDateTime) {
+		this.appointmentDateTime = appointmentDateTime;
+	}
+
+	public AppointmentStatus getAppointmentStatus() {
+		return appointmentStatus;
+	}
+
+	public void setAppointmentStatus(AppointmentStatus appointmentStatus) {
+		this.appointmentStatus = appointmentStatus;
+	}
+
+	public AppointmentSpecialization getAppointmentSpecialization() {
+		return appointmentSpecialization;
+	}
+
+	public void setAppointmentSpecialization(AppointmentSpecialization appointmentSpecialization) {
+		this.appointmentSpecialization = appointmentSpecialization;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	@Override
+	public String toString() {
+		return "Appointment [appointmentId=" + appointmentId + ", appointmentDateTime=" + appointmentDateTime
+				+ ", appointmentStatus=" + appointmentStatus + ", appointmentSpecialization="
+				+ appointmentSpecialization + ", patient=" + patient + "]";
+	}
+	
+	
 }
