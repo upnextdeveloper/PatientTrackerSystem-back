@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.upnextdeveloper.pts.entity.Patient;
-import com.upnextdeveloper.pts.service.PatientService;
+import com.upnextdeveloper.pts.entity.Feedback;
+import com.upnextdeveloper.pts.service.FeedbackService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping(path="/api")
-public class PatientController {
+@RequestMapping("/api")
+public class FeedbackController {
 
 	@Autowired
-	private PatientService patientService;
+	private FeedbackService feedbackService;
 	
-	@GetMapping("/patient")
-	public List<Patient> getAllPatients(){
-		return patientService.getAllPatients();
+	@GetMapping("/feedback")
+	public List<Feedback> getAllFeedback(){
+		return feedbackService.getAllFeedback();
 	}
 }

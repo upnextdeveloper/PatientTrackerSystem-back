@@ -16,6 +16,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -42,6 +43,9 @@ public class Appointment {
 	@ManyToOne
 	@JoinColumn(name="patient_id", nullable=false)
 	private Patient patient;
+	
+	@OneToOne(mappedBy = "appointment")
+	private Feedback feedback;
 	
 	public Appointment() {}
 
@@ -84,6 +88,7 @@ public class Appointment {
 	public void setPatient(Patient patient) {
 		this.patient = patient;
 	}
+
 
 	@Override
 	public String toString() {

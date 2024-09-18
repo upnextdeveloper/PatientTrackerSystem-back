@@ -9,7 +9,7 @@ CREATE TABLE if not exists patient(
     last_name VARCHAR(50) NOT NULL,
     gender VARCHAR(8) NOT NULL,
     dob DATETIME NOT NULL,
-    phone VARCHAR(11) unique NOT NULL,
+    phone VARCHAR(11) NOT NULL,
     email VARCHAR(100) unique,
     is_Active boolean NOT NULL default 1,
     primary key(patient_id)
@@ -35,6 +35,7 @@ insert into pts.patient(
 insert into pts.patient(
 	first_name,mi,last_name,gender,dob,phone,email)
     Values
+    ("John","T","Doe","M","1997-5-25","1234567890","test2@gmail.com"),
     ("Donald","S","Peters","M","1985-10-26","2131235578","donalds@yahoo.com"),
     ("Paula","K","Smith","F","1978-11-10","4588887896","paulasmith@aol.com")
 ;
@@ -74,7 +75,7 @@ insert into pts.appointment(
     ("2024-4-01 12:00:00","SCHEDULED","WELLNESS",2),
     ("2024-3-19 15:00:00","SCHEDULED","ORTHOPAEDICS",16),
     ("2024-3-19 11:00:00","CANCELLED","SURGERY",15),
-    ("2024-3-19 08:00:00","SCHEDULED","CARDIOLOGY",1),
+    ("2024-3-19 08:00:00","SCHEDULED","CARDIOLOGY",17),
     ("2024-3-19 11:00:00","SCHEDULED","CARDIOLOGY",16),
     ("2024-3-19 09:00:00","SCHEDULED","SURGERY",13),
     ("2024-3-19 08:00:00","SCHEDULED","WELLNESS",7),
